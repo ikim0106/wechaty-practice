@@ -24,24 +24,34 @@ Wechaty.instance()
 .on('message',  message => {
     console.log(`${message.from()} said "${message}"`);
     const chat = message.room()
-    if(`${message}`==="help")
+    var sentmessage = message.toString();
+    sentmessage = sentmessage.toLowerCase();
+    sentmessage = sentmessage.trim();
+    if(sentmessage.includes('help')&&!(message.self()))
     {
-        getRoom(message).say(`Hello ${getMessageSender(message)}, how may I help you?`)
-    }   
+        getRoom(message).say(`Hello ${getMessageSender(message)}, if you need help, try "help" followed by a keyword (without the quotes). Example: help memes`)
+        return;
+    }  
+    else
+    {
+        return;
+    } 
 })
 
 .on('room-join', user =>{
-    getRoom(user).say(`${user} has joined this chat`)
+    console.log(`megalul ${user}`)
 })
 
 .on('room-leave', user=>{
-    
+    console.log(`megalul ${user}`)
 })
 
 .on('message', message=>
 {
     var imagerequest = message.toString();
-    if (imagerequest.includes('imgsearch'))
+    imagerequest = imagerequest.toLocaleLowerCase();
+    imagerequest = imagerequest.trim();
+    if (imagerequest.includes('imgsearch')&&!(message.self()))
     {
         imagerequest = imagerequest.replace('imgsearch ','')
         request("https://www.googleapis.com/customsearch/v1?key=+AIzaSyBiw58K8MJOzZYIbDNTcJN0aSw8K1MOtSI&cx=005095525797302733243:qcilnmzij7q&num=1&searchType=image&q=" + imagerequest,
