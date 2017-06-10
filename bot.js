@@ -29,13 +29,27 @@ Wechaty.instance()
     sentmessage = sentmessage.trim();
     if(sentmessage.includes('help')&&!(message.self()))
     {
-        getRoom(message).say(`Hello ${getMessageSender(message)}, if you need help, try "help" followed by a keyword (without the quotes). Example: help memes`)
+        getRoom(message).say(`Hello ${getMessageSender(message)}, if you need help, try "get" followed by a keyword (without the quotes). Type "get list" to show available keywords. Example: get website`)
         return;
     }  
     else
     {
         return;
     } 
+})
+
+.on('message', message=>{
+    var sentmessage2 = message.toString();
+    sentmessage2 = sentmessage2.toLowerCase();
+    sentmessage2 = sendmessage2.trim();
+    if(sentmessage.includes('get')&&!(message.self()))
+    {
+        sentmessage2 = sentmessage2.replace('get ', '')
+        if(sentmessage2==='services')
+        getRoom(message).say(`www.coderbunker.com/services`)
+        else if(sentmessage2==='list')
+        getRoom(message).say('services: link to coderbunker services page' + '\n' + '')
+    }
 })
 
 .on('room-join', user =>{
