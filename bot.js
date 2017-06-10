@@ -53,11 +53,11 @@ Wechaty.instance()
 })
 
 .on('room-join', user =>{
-    console.log(`megalul ${user}`)
+    //person joins the chat and the bot sends an appropriate message
 })
 
 .on('room-leave', user=>{
-    console.log(`megalul ${user}`)
+    //person leaves the chat and the bot sends an appropriate message
 })
 
 .on('message', message=>
