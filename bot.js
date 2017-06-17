@@ -43,25 +43,24 @@ Wechaty.instance()
     var megalul = message.toString();
     megalul = megalul.toLowerCase();
     megalul = megalul.trim();
-    var chatroom = getRoom(message)
     if(megalul.includes('get')&&!(message.self()))
     {
         megalul = megalul.replace('get ','')
         if(megalul === 'website')
         {
-            chatroom.say('www.smicschool.com')
+            getRoom(message).say('www.smicschool.com')
         }
         else if(megalul === 'list')
         {
-            chatroom.say('Currently, the available key words are:' + '\n' + 'website, list, who')
+            getRoom(message).say('Currently, the available key words are:' + '\n' + 'website, list, who')
         }
         else if(megalul === 'who')
         {
-            chatroom.say('We are the SMIC Computer Club! We are high school students who want to learn about machinese in general, not just coding or computers')
+            getRoom(message).say('We are the SMIC Computer Club! We are high school students who want to learn about machinese in general, not just coding or computers')
         }
         else
         {
-            chatroom.say('Sorry, you did not provide a valid keyword')
+            getRoom(message).say('Sorry, you did not provide a valid keyword')
         }
     }
 })
@@ -111,7 +110,7 @@ Wechaty.instance()
 				    return;
 			    }
 			var result = data.items[0];
-			getRoom(message).say( result.title + '\n' + result.link);
+			getRoom(message).say( 'Here are the top 5 results for your image request' + '\n' + result.link);
 		})
         return;
     }
