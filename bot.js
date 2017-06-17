@@ -66,12 +66,15 @@ Wechaty.instance()
     }
 })
 
-.on('room-join', () =>{
+.on('room-join', (room, inviteelist) =>{
     //person joins the chat and the bot sends an appropriate message
+    const nameList = inviteelist.map(c => c.name()).join(',')
+    room.say(`${nameList} have been invited into this group`)
 })
 
-.on('room-leave', user=>    {
-    //person leaves the chat and the bot sends an appropriate message
+.on('room-leave', (room, leaverList)=>{
+    const leavelist = leaverList.map(a=> c.name()).join(',')
+    room.say(`${nameList} have left this group`)
 })
 
 .on('message', message=>
