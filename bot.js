@@ -44,7 +44,28 @@ Wechaty.instance()
     } 
 })
 
-
+.on('message', message =>{
+    var megalul = message.toString();
+    megalul = megalul.toLowerCase();
+    megalul = megalul.trim();
+    var chatroom = getRoom(message)
+    if(megalul.includes('get')&&!(message.self()))
+    {
+        megalul = megalul.replace('get ','')
+        if(megalul === 'website')
+        {
+            chatroom.say('www.smicschool.com')
+        }
+        else if(megalul === 'list')
+        {
+            getRoom(message).say('Currently, the available key words are:' + '\n' + 'not coded yet lul')
+        }
+        else if(megalul === 'services')
+        {
+            chatroom.say('We are community of freelance developers who will satisfy all of your software needs!')
+        }
+    }
+})
 
 .on('room-join', user =>{
     //person joins the chat and the bot sends an appropriate message
