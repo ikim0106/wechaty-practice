@@ -2,4 +2,7 @@
 
 Wechaty practice in preparation for Candobot (maybe?)
 
-> bad code
+## Functions ##
+- automatic helpful reply if the message contains the word "help" 
+- typing 'get <keyword>' will trigger a reply according to the keyword
+- typing 'imgsearch <keywod>' will trigger a reply with a link according to the keyword
