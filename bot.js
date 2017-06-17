@@ -7,11 +7,6 @@ function getRoom(message)
     return message.room()
 }
 
-function roomName(message)
-{
-
-}
-
 function getContent(message)
 {
     return message.content()
@@ -58,16 +53,20 @@ Wechaty.instance()
         }
         else if(megalul === 'list')
         {
-            getRoom(message).say('Currently, the available key words are:' + '\n' + 'not coded yet lul')
+            chatroom.say('Currently, the available key words are:' + '\n' + 'website, list, who')
         }
-        else if(megalul === 'services')
+        else if(megalul === 'who')
         {
-            chatroom.say('We are community of freelance developers who will satisfy all of your software needs!')
+            chatroom.say('We are the SMIC Computer Club! We are high school students who want to learn about machinese in general, not just coding or computers')
+        }
+        else
+        {
+            chatroom.say('Sorry, you did not provide a valid keyword')
         }
     }
 })
 
-.on('room-join', user =>{
+.on('room-join', () =>{
     //person joins the chat and the bot sends an appropriate message
 })
 
