@@ -9,4 +9,4 @@ Wechaty practice in preparation for Candobot (maybe?)
 
 ## Setting it up ##
 - download the repository somewhere
-- in the downloaded directory, type ```npm install wechaty``` then ```npm install chromedriver```. Usually, a restart is required after installing chromedriver
+- in the downloaded directory (using a command prompt) use ```npm install wechaty``` and you should be ready to go with ```node bot.js```
